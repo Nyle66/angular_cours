@@ -1,0 +1,24 @@
+<hr>
+
+<h3>Nouveau Jeu</h3>
+<label>Nom du jeu</label><input type="text" [(ngModel)]="form_game.name"><br>
+<label>Editeur</label><input type="text" [(ngModel)]="form_game.editor"><br>
+
+<h5><i>Apercu : </i></h5>
+<div>
+    <h4>{{form_game.name | uppercase}}</h4>
+    <p><i>Editor : {{form_game.editor | lowercase}} </i></p>
+    <button (click)="addGame()">Valider</button>
+</div>
+
+<hr>
+
+<h4 *ngIf='selected_game'> Jeux selectionné : {{selected_game.name}} edité par {{selected_game.editor}} </h4>
+<ul>
+    <!-- Je viens répeter la structure du li et de ses enfants en bouclant sur mygames -->
+    <li *ngFor="let game of mygames" (click)="selectGame(game)"> 
+        <!-- | est un filtre permettant de gérer l'affichage d'une variable-->
+        <h4> Name: {{ game.name | uppercase }} </h4>
+        <p><i> Editor : {{ game.editor | lowercase }} </i></p>
+    </li>
+</ul>

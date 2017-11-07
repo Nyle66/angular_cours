@@ -1,0 +1,17 @@
+h1{color: red}
+h2{color: green}
+button{
+    border-color: green;
+}
+button.activate{
+    border-color: red;
+}
+.fixed{
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgb(122, 236, 219);
+}

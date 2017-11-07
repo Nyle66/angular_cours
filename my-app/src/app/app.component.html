@@ -1,0 +1,25 @@
+
+<!-- les variables peuvent etre affichées  grace aux {{}} -->
+<h1> {{titre}} </h1>
+<h2> Ceci est l'app de {{ username }} </h2>
+
+<div>
+    je veux afficher cet élément tout le temps
+</div>
+
+<!-- Quand je clique, j'appele la fonction toogle de ma classe AppComponent -->
+<!-- De plus je ne met la classe activate que si autorisation=true -->
+<button (click)="toggleAuthorisation()" [class.activate]="autorisation">{{button}}</button>
+
+<!-- Si ma variable autorisation est true, élément s'affiche -->
+<div *ngIf="autorisation" >
+    je veux afficher cet élément si j'ai l'autorisation : {{ mot_secret}}
+</div>
+
+<h3>Mes jeux</h3>
+<app-games></app-games>
+
+<div class="fixed">
+  <app-games></app-games>
+</div>
+

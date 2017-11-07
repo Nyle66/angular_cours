@@ -1,0 +1,40 @@
+<label>Search : </label><input type="text" [(ngModel)]="search" />
+
+<br><br>
+
+<label>Red : </label><input type="range" min="0" max="255" [(ngModel)]="color.red" />
+<label>Green : </label><input type="range" min="0" max="255" [(ngModel)]="color.green" />
+<label>Blue : </label><input type="range" min="0" max="255" [(ngModel)]="color.blue" />
+<div id="preview" [appBackground]="color.toString()"></div>
+
+<br><br>
+
+<div id="body">
+
+
+
+  <div id="note"></div>
+
+  <div id="add" (click)="displayNote()"> + </div>
+  
+  <div *ngIf="display" id="form">
+      <h4>Ajouter Note</h4>
+      <input type="text" class="title" placeholder="Titre" [(ngModel)]="post.title"><br>
+      <input type="text" class="content" placeholder="Contenu" [(ngModel)]="post.content"><br>
+      <button (click)="addNote()">Envoyer</button>
+  </div>
+
+  <div *ngIf="selected_note" id="edit">
+      <h4>Editer Note</h4>
+      <input type="text" class="title" placeholder="Titre" [(ngModel)]="selected_note.title"><br>
+      <input type="text" class="content" placeholder="Contenu" [(ngModel)]="selected_note.content"><br>
+  </div>
+
+  
+    <div class="post-it" *ngFor="let note of tab | filter: search; let i=index" (click)="selected_note=note">
+        <app-note [color]="color" [note]="note" [index]="i" (event)="remove($event)"></app-note>
+    </div>
+  
+
+
+</div>
